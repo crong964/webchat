@@ -1,0 +1,51 @@
+<div class=" h-full w-full  py-10 flex justify-center z-50 absolute top-0 left-0">
+    <div class="w-[360px] bg-white border-black border-2 p-2 rounded-3xl">
+        <div class="border-black border-b-2 flex pb-4 justify-between content-center">
+            <h2 class="font-bold text-xl">
+                Thêm thanh viên
+            </h2>
+            <div class="cursor-pointer" onclick="removeSearchUserHTML()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 fill-black hover:fill-blue-500" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"></path>
+                    <path
+                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708">
+                    </path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="relative my-2">
+            <div class="absolute top-0 left-0">
+
+            </div>
+            <input class="pl-5 py-2 w-full" type="text" placeholder="tên nhóm chat">
+        </div>
+        <form class="cactv flex justify-start overflow-x-scroll h-24">
+
+        </form>
+
+        <div class="my-4">
+            gợi ý
+        </div>
+        <div class="overflow-y-scroll h-80">
+            <% for (let index=0; index < l.length; index++) { var e=l[index]; %>
+                <div class="flex h-18 items-center mt-2 CB<%=e.id%> cursor-pointer rounded-3xl py-2 hover:text-blue-500 border-white border-2 hover:border-black"
+                    onclick="list('<%=e.avatar%>', '<%=e.nameUser%>', '<%=e.id%>', this)">
+                    <div class="w-14 h-14 overflow-hidden rounded-full">
+                        <img class=" w-full h-auto" src="<%=e.avatar%>" alt="" srcset="" />
+                    </div>
+                    <div class="ml-4">
+                        <div class="w-full px-3 font-mono">
+                            <%=e.nameUser%>
+                        </div>
+                    </div>
+                </div>
+               
+                <%}%>
+        </div>
+        <div class="flex justify-end">
+            <button onclick="createGroup()"
+                class="px-4 py-2 font-mono text-black hover:bg-blue-500 hover:text-white">Tạo nhóm</button>
+        </div>
+    </div>
+</div>

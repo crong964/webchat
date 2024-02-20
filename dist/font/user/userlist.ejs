@@ -1,0 +1,16 @@
+<div class="border-t-2 pb-5">Mọi người</div>
+<% for (let i=0; i < listUser.length; i++) { const e=listUser[i];%>
+    <div class="px-2 h-18 py-2 flex hover:bg-stone-200 cursor-pointer content-center">
+        <div class="w-14 h-14 overflow-hidden">
+            <img class="rounded-full w-full h-auto" src="<%=e.avatar %>" alt="" srcset="" />
+        </div>
+        <div class="ml-4">
+            <div class="w-full px-3 font-sans">
+                <div class="">
+                    <%= e.nameUser%>
+                </div>
+            </div>
+            <button onclick="addFriendsRequset('<%=e.id%>')" class="px-2 py-1 rounded-lg bg-blue-400">Kết bạn</button>
+        </div>
+    </div>
+    <%}%>

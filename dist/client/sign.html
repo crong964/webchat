@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/ouput.css">
+    <link rel="stylesheet" href="public/css/ouput.css">
+</head>
+<style>
+    .sh {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+        ;
+    }
+</style>
+<script src="https://accounts.google.com/gsi/client" async></script>
+<body>
+    <div class="flex justify-center justify-items-center py-48">
+        <div class="w-5/12">
+            <div class="text-5xl font-bold text-blue-600">
+                Chat Box
+            </div>
+            <div class="text-2xl">
+                Chat Boxgiúp bạn kết nối và chia sẻ với mọi người trong cuộc sống của bạn.
+            </div>
+        </div>
+        <div class="w-3/12 sh py-4">
+            <div class="text-center text-2xl font-bold text-blue-600">
+                Đăng nhập
+
+            </div>
+            <form action="http://localhost:666/account/sign" method="post" class="flex flex-wrap justify-center">
+                <input type="email" required placeholder="nhập email" name="account"
+                    class="w-9/12 border-2 my-6 rounded-xl p-2">
+                <input type="password" required value="123" name="password" placeholder="nhập mật khẩu"
+                    class="w-9/12 border-2 my-6 rounded-xl p-2">
+                <input type="submit" class="border-2 px-20 py-2 bg-blue-400" name="Đăng nhập">
+            </form>
+           
+            <div id="g_id_onload"
+                data-client_id="814286348049-ehu28te266lohvbgsgu6mcgroe3qihcr.apps.googleusercontent.com"
+                data-login_uri="http://localhost:666/account/auth" data-auto_prompt="false">
+            </div>
+            <div class="text-xl text-cyan-50 my-3">
+                
+            </div>
+            <div class="g_id_signin flex justify-center" data-type="standard" data-size="large" data-theme="outline" data-text="signin"
+                data-shape="circle" data-logo_alignment="left">
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>

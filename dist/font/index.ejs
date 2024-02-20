@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zalo test</title>
+</head>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" type="text/css" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps.css" />
+<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps-web.min.js"></script>
+<link rel="stylesheet" href="/public/css/ouput.css">
+<link rel="stylesheet" href="/public/css/dangnhap.css">
+
+<body class="h-full relative ">
+    <div class="searchHTML">
+
+    </div>
+    <div class="flex h-full mainbody ">
+        <%- include('./navi.ejs'); %>
+            <div class="w-10/12 list  min-[900px]:w-80  border-r-2 h-full overflow-x-hidden overflow-y-scroll">
+                <div class="flex justify-center py-3 px-2 pb-8 z-10 sticky top-0 left-0  bg-white items-center">
+                    <div class="w-9/12 bg-stone-200 rounded-md">
+                        <div class="flex h-8 relative ">
+                            <div class="grid grid-cols-1 h-full content-center absolute top-0 left-0 px-1 ">
+                                <img src="../public/image/search.svg" class="h-4" alt="" srcset="">
+                            </div>
+                            <input class="w-full bg-stone-200 pl-8 rounded-md" placeholder="tìm kiếm"
+                                onkeyup="search(this)" type="text">
+                        </div>
+
+                    </div>
+                    <div class="w-2/12 " onclick="searchuserHTML()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class=" w-8/12 h-auto fill-black hover:fill-blue-500" viewBox="0 0 16 16">
+                            <path
+                                d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                            <path
+                                d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                        </svg>
+                    </div>
+                    <div class="w-2/12" onclick="addGroup()">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-8/12 h-auto  hover:fill-blue-500">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="boxchatlist ">
+                    <%- include('./box/boxlist.ejs')%>
+
+                </div>
+            </div>
+            <div id="map" class=" boxchat w-10/12 hidden min-[900px]:block min-[900px]:w-10/12 ">
+            </div>
+    </div>
+
+</body>
+<script src="/public/client.js"></script>
+<script src="/public/messclient.js"></script>
+<script src="/public/map.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+    setInterval(() => {
+        console.log(screen.width);
+    }, 1000);
+    const socket = io()
+    socket.on("connect", () => {
+        console.log(socket.id);
+    });
+    socket.on("ReqAddFriends", (data) => {
+
+    })
+    socket.on("receiveMess", (data) => {
+        showyourmess(data)
+        ConvertTextToImages()
+    })
+    function sendmess(idBox) {
+        var mess = document.querySelector(".mess")
+        if (mess.value != "") {
+            let data = {
+                idBox: idBox,
+                content: mess.value,
+                type: "0"
+            }
+            socket.emit('sendMess', data);
+            showmymess(data)
+            mess.value = ""
+        }
+    }
+
+</script>
+
+</html>

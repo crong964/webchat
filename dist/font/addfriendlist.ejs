@@ -1,0 +1,25 @@
+<% if ( n> 0){ %>
+  <div class="border-t-2 pb-5">Lời mời kết bạn</div>
+  <% for (let i=0; i < listUser.length; i++) { const e=listUser[i];%>
+    <div class="px-2 h-18 py-2 flex hover:bg-stone-200 cursor-pointer F<%=e.id%>">
+      <div class="overflow-hidden w-14 h-14 rounded-full mr-2">
+        <img class="w-full" src="<%=e.avatar%>" alt="" srcset="" />
+      </div>
+      <div class="grid grid-cols-1 content-start">
+        <div class="w-4/5 px-3 font-sans">
+          <div class="">
+            <%= e.nameUser%>
+          </div>
+        </div>
+        <div class="flex">
+          <button onclick="acceptAddFriendRequest('<%=e.id%>')" class="px-2 py-1 mr-1 rounded-lg bg-blue-400">
+            Chấp nhận
+          </button>
+          <button onclick="cacelAddFriendRequest('<%=e.id%>','F<%=e.id%>')" class="px-2 py-1 rounded-lg bg-red-400">
+            từ chối
+          </button>
+        </div>
+      </div>
+    </div>
+    <%}%>
+      <%}%>

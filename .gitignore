@@ -3,7 +3,7 @@ node_modules
 dist/public/map/*
 dist/public/upload/*
 dist/public/avatar/*
-dist/font/*
+
 dist/source
 dist/server.js
 dist/confi.js

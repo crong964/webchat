@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .re {
+        position: relative;
+    }
+    
+    .st {
+        top: 0;
+        left: 0;
+        position: sticky;
+        background-color: white;
+    }
+    
+    .root {
+        height: 200px;
+    }
+    
+    .d {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+</style>
+
+<body class="re">
+    <div id="root" class="st root">
+
+    </div>
+    <br> <br>
+
+
+    <div class="c">
+        <h1>tôi là ai</h1>
+        <input type="submit" id="who"> <br> <br>
+        <a href="/account/logOut" class="c">đăng xuất</a><br> <br>
+        <a href="/account/logOutAll" class="c">đăng xuất tất cả</a><br> <br>
+        <div class="d">
+            <div class="s">
+                <h1>Danh sách bạn bè</h1>
+                <input type="submit" id="FriendsList">
+            </div>
+
+            <div class="s">
+                <h1>Tìm kiếm bạn bè</h1>
+                <input type="text" id="findNameFriends" placeholder="tên cần tìm">
+                <input type="submit" id="submitFindNameFriends">
+            </div>
+
+            <div class="s">
+                <h1>Yêu cầu kết bạn</h1>
+                <input type="text" name="idFriend" id="idFriend">
+                <input type="submit" id="submitIdFriend">
+            </div>
+
+            <div>
+                <h1>Danh sách kết bạn</h1>
+                <input id="listAddFriendRequest" type="submit">
+            </div>
+
+
+            <div class="s">
+                <h1>Hủy lời mời kết bạn</h1>
+                <input type="text" id="CacelAddFriendRequest">
+                <input type="submit" id="SubmitCacelAddFriendRequest" placeholder="nhập id bạn">
+            </div>
+
+            <div class="s">
+                <h1>Đồng ý kết bạn</h1>
+                <input type="text" id="AcceptAddFriendRequest">
+                <input type="submit" id="SubmitAcceptAddFriendRequest">
+            </div>
+
+            <div class="s">
+                <h1>Danh sách các hộp thoại</h1>
+                <input type="submit" id="SubmitBoxChatList">
+            </div>
+            <div class="s">
+                <h1>Hủy bạn bè</h1>
+                <input type="text" id="cancelFriends">
+                <input type="submit" id="SubmitCancelFriends">
+            </div>
+            <div class="s">
+                <h1>Xóa boxchat</h1>
+                <input type="text" id="HiddenBoxChat">
+                <input type="submit" id="SubmitHiddenBoxChat">
+            </div>
+            <div class="s">
+                <h1>Danh sách gửi yêu cầu kết bạn</h1>
+                <input type="submit" id="SubmitSentFriendRequest">
+            </div>
+            <div class="s">
+                <h1>Nhắn tin</h1>
+                <input type="text" id="Chat">
+                <input type="submit" id="SubmitChat">
+            </div>
+            <div class="s">
+                <h1>Gửi tin nhắn</h1>
+                <input type="text" placeholder="nhập idBox" id="idBoxChat">
+                <input type="text" placeholder="nhập nội dung" id="Content">
+                <input type="submit" id="SumbMitSend">
+            </div>
+            <div class="s">
+                <h1>Lấy nội dung trong boxchat</h1>
+                <input type="text" placeholder="nhập idBox" id="GetContentInBox">
+                <input type="submit" id="SubMitGetContentInBox">
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="/public/client.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    document.getElementById("who").addEventListener("click", () => {
+        alert(document.cookie)
+    })
+    const socket = io()
+    socket.on("connect", () => {
+        console.log(socket.id);
+    });
+    socket.on("ReqAddFriends", (data) => {
+        alert(data)
+    })
+    socket.on("receiveMess", (data) => {
+        alert(JSON.stringify(data))
+    })
+    var idBoxChat = document.getElementById("idBoxChat");
+    var Content = document.getElementById("Content");
+    var SumbMitSend = document.getElementById("SumbMitSend");
+
+    SumbMitSend.addEventListener("click", () => {
+        let data = {
+            idBox: idBoxChat.value,
+            content: Content.value
+        }
+        socket.emit("sendMess", data);
+    })
+</script>
+
+
+</html>

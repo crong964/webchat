@@ -1,0 +1,30 @@
+<% for (let i=0; i < listBoxchat.length; i++) { %>
+    <% const element=listBoxchat[i]; %>
+        <div onclick="boxid('<%=element.idBox%>','<%=element.idUser%>')"
+            class="px-2 h-18 py-2 flex hover:bg-stone-200  cursor-pointer">
+            <input type="hidden" id="avatar" value="<%=element.avatar %>">
+            <input type="hidden" id="name" value="<%=element.nameUser %>">
+            <div class="overflow-hidden w-14 h-14 rounded-full mr-3">
+                <img src="<%=element.avatar%>" alt="" srcset="">
+            </div>
+            <div class="w-4/5 px-3 font-sans">
+                <div class="">
+                    <%if (element.boxtype==2) {%>
+                        nhóm chat
+                        <% } else{ %>
+                            <%=element.nameUser%>
+                                <%}%>
+
+                </div>
+                <%if(element.idUser==element.id){%>
+                    <div class="text-xs overflow-hidden h-8">
+                        Bạn: <%=element.content%>
+                    </div>
+                    <% } else{%>
+                        <div class="text-xs overflow-hidden h-8">
+                            <%=element.content%>
+                        </div>
+                        <%}%>
+            </div>
+        </div>
+        <%} %>

@@ -1,0 +1,54 @@
+<div class="pl-2 h-16 py-2 flex bg-stone-100 cursor-pointer items-center">
+    <input type="hidden" id="yourimage" value="<%=box.avatar%>">
+    <div class="block min-[900px]:hidden p-3" onclick="out()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-8 h-8">
+            <path strokelinecap="round" strokelinejoin="round"
+                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+        </svg>
+
+
+    </div>
+    <div class="overflow-hidden w-14 h-14 rounded-full mr-3">
+        <img class="" src="<%=box.avatar%>" alt="" srcset="">
+    </div>
+    <div class="w-3/5 px-3 font-sans">
+        <div class="">
+            <%=box.nameUser%>
+        </div>
+    </div>
+
+</div>
+<div class=" bg-white h-2/3  border-y-2 grid grid-cols-1 content-end">
+    <div class="h-auto boxscroll overflow-x-hidden scroll-smooth overflow-y-scroll box<%=box.idBox%>"
+        onscroll="scrollMess(this,'<%=idFriend%>','<%=box.idBox%>')">
+        <%- include('./../mess/listMess.ejs')%>
+    </div>
+</div>
+<div class="chat">
+    <div class="p-4">
+        <div class="w-8">
+            <label for="file">
+                <svg xmlns="http://www.w3.org/2000/svg" class="fill-black hover:fill-blue-400 w-8 h-8"
+                    viewBox="0 0 16 16">
+                    <path d="M8.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                    <path
+                        d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v8l-2.083-2.083a.5.5 0 0 0-.76.063L8 11 5.835 9.7a.5.5 0 0 0-.611.076L3 12z" />
+                </svg>
+                <form action="" class="hidden fileform">
+                    <input type="file" id="file" name="image" onchange="f(this)" multiple>
+                    <input type="hidden" name="idBox" value="<%=box.idBox%>">
+                </form>
+
+            </label>
+        </div>
+    </div>
+    <div class="flex p-2">
+        <input type="text" placeholder="Aa"
+            class="focus:border-dotted mess w-11/12 bg-stone-200 rounded-lg p-2 mr-3 border-0 ">
+        <button class="hover:bg-stone-300 rounded-full p-3" onclick="sendmess('<%=box.idBox%>')">
+            Gửi
+        </button>
+
+    </div>
+</div>

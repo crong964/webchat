@@ -1,0 +1,66 @@
+<input type="hidden" id="now" value="<%=now%>">
+<% var f=id; %>
+    <% for (let i=listMess.length-1; i>=0 ; i--) { const e=listMess[i];%>
+        <input type="hidden" value="" name="">
+        <% if(e.idUser==id){ f=e.idUser; %>
+            <div class="w-full M<%=e.idMess%>" onmouseenter="shownavigate('<%=e.idMess%>')"
+                onmouseleave="hidennaviagte('<%=e.idMess%>')">
+                <div class="flex justify-end items-center ">
+                    <div class="hidden N<%=e.idMess%> h-5 w-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            onclick="removemess('<%=e.idMess%>')" class="fill-black hover:fill-blue-500"
+                            viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                        </svg>
+                    </div>
+                    <div class=" grid grid-cols-1 justify-items-end p-2 ">
+                        <div class=" bg-stone-200 p-2 rounded-xl max-w-[80%]  min-[600px]:max-w-[400px] ">
+                            <div class="M<%=e.type%> text-wrap">
+                                <%=e.content%>
+                            </div>
+                            <p class=" text-red-400">
+                                <%=e.ngay%>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <%} else {%>
+                <div class="w-full M<%=e.idMess%>" onmouseenter="shownavigate('<%=e.idMess%>')"
+                    onmouseleave="hidennaviagte('<%=e.idMess%>')">
+                    <div class="w-1/2  my-2 ml-2 ">
+                        <div class="flex items-center">
+                            <div class="overflow-hidden w-10 h-10 rounded-full mr-3">
+                                <% if(f !=e.idUser){ f=e.idUser;%>
+                                    <img class="" src="<%=box.avatar%>" alt="" srcset="">
+                                    <%}%>
+                            </div>
+                            <div class="grid grid-cols-1 relative max-w-[80%] min-[600px]:max-w-[400px] ">
+                                <div class="bg-blue-200 p-2 rounded-md ">
+                                    <p class="M<%=e.type%> text-right ">
+                                        <%=e.content%>
+                                    </p>
+                                    <p class="text-right text-red-400 ">
+                                        <%=e.ngay%>
+                                    </p>
+                                </div>
+                                <div class="hidden N<%=e.idMess%> ml-3 rounded-full p-1 h-6 w-6 absolute left-full top-1/2 z-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        onclick="removemess('<%=e.idMess%>')" class="fill-black hover:fill-blue-500"
+                                        viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                        <path
+                                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                                    </svg>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <% } }%>

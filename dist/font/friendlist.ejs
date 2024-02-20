@@ -1,0 +1,20 @@
+
+<% for (let i=0; i < l.length; i++) { const e=l[i];%>
+    <div class="px-2 h-18 my-2 flex hover:bg-stone-200 cursor-pointer py-2">
+        <div class="flex justify-center ">
+            <div class="overflow-hidden w-14 h-14 rounded-full mr-2">
+                <img class="w-full" src="<%=e.avatar%>" alt="" srcset="" />
+            </div>
+        </div>
+        <div class="w-4/5">
+            <div class=" font-sans">
+                <div class="">
+                    <%= e.nameUser%>
+                </div>
+            </div>
+            <div>
+                <button class="px-3 py-1 rounded-xl bg-blue-400" onclick="showboxchat('<%=e.id%>')">Nhắn tin</button>
+            </div>
+        </div>
+    </div>
+    <%}%>
