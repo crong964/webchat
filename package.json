@@ -1,0 +1,49 @@
+{
+    "type": "commonjs",
+    "name": "ser",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./dist/server.js",
+    "scripts": {
+        "test": "concurrently \" npx tsc -w\" \"npx webpack --mode development --watch \"",
+        "start": "concurrently \"npx tsc -w\" \"nodemon .\\dist\\server.js\" \"npx tailwindcss -i ./dist/public/css/input.css -o ./dist/public/css/ouput.css --watch \"",
+        "a": "concurrently \" npx tsc -w\" \" nodemon .\" \" npx webpack --mode development --watch \" ",
+        "map": " npx webpack --mode development --watch"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@google-cloud/local-auth": "^2.1.0",
+        "@tomtom-international/web-sdk-maps": "^6.25.0",
+        "@tomtom-international/web-sdk-services": "^6.25.0",
+        "@types/cookie-parser": "^1.4.3",
+        "@types/express": "^4.17.14",
+        "@types/mysql": "^2.15.21",
+        "@types/node": "^18.19.7",
+        "@types/react": "^18.2.48",
+        "@types/react-dom": "^18.2.18",
+        "concurrently": "^7.4.0",
+        "cookie-parser": "^1.4.6",
+        "cors": "^2.8.5",
+        "ejs": "^3.1.9",
+        "express": "^4.18.1",
+        "googleapis": "^105.0.0",
+        "multer": "^1.4.5-lts.1",
+        "mysql": "^2.18.1",
+        "nodemon": "^2.0.20",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "socket.io": "^4.5.2",
+        "socket.io-client": "^4.7.4",
+        "tailwindcss": "^3.3.6",
+        "uuid": "^9.0.1"
+    },
+    "devDependencies": {
+        "@types/multer": "^1.4.11",
+        "@types/uuid": "^9.0.8",
+        "ts-loader": "^9.5.1",
+        "typescript": "^5.3.3",
+        "webpack": "^5.89.0",
+        "webpack-cli": "^5.1.4"
+    }
+}

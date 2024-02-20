@@ -1,0 +1,12 @@
+node_modules
+.vscode
+dist/public/map/*
+dist/public/upload/*
+dist/public/avatar/*
+dist/font/*
+dist/source
+dist/server.js
+dist/confi.js
+dist/index.js
+dist/gmail.js
+dist/route
