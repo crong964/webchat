@@ -91,7 +91,7 @@ export default class CTAddFriendReques {
     var check = 0;
     try {
       var ls = await GetCountFriendRequestByStatusDB(idAddFriend, s) as any[]
-      
+
       for (let i = 0; i < ls.length; i++) {
         const element = ls[i];
         check = element.c

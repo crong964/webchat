@@ -201,9 +201,7 @@ function SendMess(data: SendMessData) {
                     postFormData2(
                       "http://localhost:666/upload/",
                       form,
-                      (d: any) => {
-                        alert("xong");
-                      }
+                      (d: any) => {}
                     );
                   }
                 }}

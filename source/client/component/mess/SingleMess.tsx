@@ -58,7 +58,7 @@ function TypeMessImage(data: mess) {
     );
   });
 
-  return <div className="grid grid-cols-4 gap-4">{a}</div>;
+  return <div className="columns-3">{a}</div>;
 }
 
 function LiveLoction(data: mess) {
@@ -99,7 +99,7 @@ function Mess(data: Mess) {
     case "3":
       return <Location content={data.content}></Location>;
     default:
-      return <>{data.content}</>;
+      return <div className="">{data.content}</div>;
   }
 }
 

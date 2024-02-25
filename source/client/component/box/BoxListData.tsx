@@ -250,7 +250,7 @@ function BoxData(data: boxdata) {
             {data.boxtype == "2" ? "nhóm chat" : data.nameUser}
           </div>
           <div
-            className={`text-xs overflow-hidden h-8 flex ${
+            className={`text-xs line-clamp-1 ${
               status[data.status]
             }`}
           >
