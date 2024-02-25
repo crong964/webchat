@@ -1,10 +1,10 @@
-import mysql from "mysql";
+import mysql2 from "mysql2";
 import { confi } from "../../confi.js";
 import { statusBox } from "../controller/CTHavelistboxchat.js";
 
 export function UpdateStatusBox(idUser: string, idBox: string, status: string) {
   return new Promise((res, rel) => {
-    let con = mysql.createConnection(confi);
+    let con = mysql2.createConnection(confi);
     con.connect((err) => {
       if (err) {
         rel(err);
@@ -36,7 +36,7 @@ export function GetIdBoxbyIdUserAndIdFriendDB(
   return new Promise((res, err) => {
 
 
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((e) => {
       if (e) {
         err(e.message);
@@ -55,7 +55,7 @@ export function GetIdBoxbyIdUserAndIdFriendDB(
 }
 export function InsertIdToNewBoxDB(idUser: string, idBox: string, idFriend: string, admin: string) {
   return new Promise((res, err) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((e) => {
       if (e) {
         err(e.message);
@@ -75,7 +75,7 @@ export function InsertIdToNewBoxDB(idUser: string, idBox: string, idFriend: stri
 }
 export function GetIdUserOnlineInBoxDB(idBox: string, idUser: string) {
   return new Promise((res, err) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((e) => {
       if (e) {
         err(e.message);
@@ -100,7 +100,7 @@ export function GetIdUserOnlineInBoxDB(idBox: string, idUser: string) {
 
 export function IsIdUserInBoxDB(idUser: string, idBox: string) {
   return new Promise((res, err) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((e) => {
       if (e) {
         err(e.message);
@@ -121,7 +121,7 @@ export function IsIdUserInBoxDB(idUser: string, idBox: string) {
 
 export function SetNotSeenInBoxDB(idUser: string, idBox: string) {
   return new Promise((res, err) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((e) => {
       if (e) {
         err(e.message);
@@ -142,7 +142,7 @@ export function SetNotSeenInBoxDB(idUser: string, idBox: string) {
 }
 export function GetHaveListidBoxByIdUserDB(idUser: string, idBox: string) {
   return new Promise((res, err) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((e) => {
       if (e) {
         err(e.message);
@@ -162,7 +162,7 @@ export function GetHaveListidBoxByIdUserDB(idUser: string, idBox: string) {
 
 export function UpdateMenberInGroupDB(idUser: string, idBox: string, menberType: string) {
   return new Promise((res, err) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((e) => {
       if (e) {
         err(e.message);
@@ -182,7 +182,7 @@ export function UpdateMenberInGroupDB(idUser: string, idBox: string, menberType:
 
 export function GetAllMenberInChatGroupDB(idUser: string, idBox: string) {
   return new Promise((res, err) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((e) => {
       if (e) {
         err(e.message);
@@ -206,7 +206,7 @@ export function GetAllMenberInChatGroupDB(idUser: string, idBox: string) {
 
 export function DeleteMenberInGroupDB(idUser: string, idBox: string) {
   return new Promise((res, err) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((e) => {
       if (e) {
         err(e.message);

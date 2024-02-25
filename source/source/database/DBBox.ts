@@ -1,9 +1,9 @@
-import mysql from "mysql"
+import mysql2 from "mysql2"
 import { confi } from "../../confi.js"
 
 export function getAllBoxByIdInBD(idUser: string) {
     return new Promise((res, err) => {
-        var con = mysql.createConnection(confi)
+        var con = mysql2.createConnection(confi)
         con.connect((e) => {
             if (e) {
                 err(e.message)
@@ -26,7 +26,7 @@ export function getAllBoxByIdInBD(idUser: string) {
 }
 export function insertNewBoxDB(boxtype: string) {
     return new Promise((res, err) => {
-        var con = mysql.createConnection(confi)
+        var con = mysql2.createConnection(confi)
         con.connect((e) => {
             if (e) {
                 err(e.message)
@@ -44,7 +44,7 @@ export function insertNewBoxDB(boxtype: string) {
 }
 export function UpdateBoxTypeDB(idBox: string, type: string) {
     return new Promise((res, err) => {
-        var con = mysql.createConnection(confi)
+        var con = mysql2.createConnection(confi)
         con.connect((e) => {
             if (e) {
                 err(e.message)
@@ -62,7 +62,7 @@ export function UpdateBoxTypeDB(idBox: string, type: string) {
 }
 export function GetEmptyBoxDB() {
     return new Promise((res, err) => {
-        var con = mysql.createConnection(confi)
+        var con = mysql2.createConnection(confi)
         con.connect((e) => {
             if (e) {
                 err(e.message)
@@ -80,7 +80,7 @@ export function GetEmptyBoxDB() {
 }
 export function UpdateLastMessBoxDB(idUser: string, content: string, idBox: string, type: "mess" | "image" | "liveLocation" | "shareLocation") {
     return new Promise((res, err) => {
-        var con = mysql.createConnection(confi)
+        var con = mysql2.createConnection(confi)
         con.connect((e) => {
             if (e) {
                 err(e.message)
@@ -98,7 +98,7 @@ export function UpdateLastMessBoxDB(idUser: string, content: string, idBox: stri
 }
 export function GetBoxbyIdBoxDB(idBox: string) {
     return new Promise((res, err) => {
-        var con = mysql.createConnection(confi)
+        var con = mysql2.createConnection(confi)
         con.connect((e) => {
             if (e) {
                 err(e.message)

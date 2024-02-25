@@ -1,10 +1,10 @@
 import { sign, confi, result } from "../../confi.js";
-import mysql from "mysql";
+import mysql2 from "mysql2";
 import Account from "../model/Account.js";
 
 export function GetAccoutDatabase(p: Account) {
   return new Promise((res, error) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((err) => {
       if (err) {
         error(err);
@@ -25,7 +25,7 @@ export function GetAccoutDatabase(p: Account) {
 }
 export function InsertAccountDB(p: Account) {
   return new Promise((res, error) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((err) => {
       if (err) {
         error(err);
@@ -44,7 +44,7 @@ export function InsertAccountDB(p: Account) {
 }
 export function UpdatePasswordDB(account: string, password: string) {
   return new Promise((res, error) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((err) => {
       if (err) {
         error(err);
@@ -63,7 +63,7 @@ export function UpdatePasswordDB(account: string, password: string) {
 }
 export function GetAccoutByNameDatabase(p: string) {
   return new Promise((res, error) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((err) => {
       if (err) {
         error(err);

@@ -5,7 +5,7 @@ import { dirname, join } from "path";
 import { Request, Response } from "express";
 import https from "https";
 import { v4 as uuidv4 } from 'uuid';
-
+import 'dotenv/config'
 
 
 export default __dirname;
@@ -19,10 +19,11 @@ export interface LngLat {
   hash?: any;
 }
 export const confi = {
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "zalo",
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
+  port: 18654
 };
 
 export interface result {

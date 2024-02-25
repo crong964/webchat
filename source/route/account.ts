@@ -272,9 +272,6 @@ route.post("/ForgetAccout", async (req, res) => {
 
 
 route.get("/auth", (req, res) => {
-  console.log(req.query);
-  console.log("có");
-
   res.end()
 })
 route.post("/auth", async (req, res) => {

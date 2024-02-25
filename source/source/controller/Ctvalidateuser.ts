@@ -60,6 +60,8 @@ export default class CTvalidateuser {
       })
       .catch((v) => {
         validatedate = undefined;
+        console.log(v);
+        
       });
     for (let i = 0; i < rt.length; i++) {
       const element = rt[i];

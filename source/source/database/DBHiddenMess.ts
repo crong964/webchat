@@ -1,8 +1,8 @@
 import { confi } from "../../confi.js";
-import mysql from "mysql"
+import mysql2 from "mysql2"
 export function InsertHiddenmessDB(idMess: string, idUser: string) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)
@@ -20,7 +20,7 @@ export function InsertHiddenmessDB(idMess: string, idUser: string) {
 }
 export function DelHiddenmessDB(idMess: string) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)
@@ -38,7 +38,7 @@ export function DelHiddenmessDB(idMess: string) {
 }
 export function GetHiddenMessByidMessidUserDB(idMess: string, idUser: string) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)

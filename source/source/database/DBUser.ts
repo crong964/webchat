@@ -1,9 +1,9 @@
-import mysql from "mysql"
+import mysql2 from "mysql2"
 import { confi } from "../../confi.js"
 import User from "../model/User"
 export function GetkUserDatabase(account: string) {
     return new Promise((res, err) => {
-        var con = mysql.createConnection(confi)
+        var con = mysql2.createConnection(confi)
         con.connect((e) => {
             if (e) {
                 err(e)
@@ -20,7 +20,7 @@ export function GetkUserDatabase(account: string) {
 }
 export function InsertNewUserDB(p: User) {
     return new Promise((res, rej) => {
-        var con = mysql.createConnection(confi)
+        var con = mysql2.createConnection(confi)
         con.connect((e) => {
             if (e) {
                 rej(e)
@@ -40,7 +40,7 @@ export function InsertNewUserDB(p: User) {
 
 export function ListUserByNameDB(idUser: string, name: string) {
     return new Promise((res, rej) => {
-        var con = mysql.createConnection(confi)
+        var con = mysql2.createConnection(confi)
         con.connect((e) => {
             if (e) {
                 rej(e)
@@ -59,7 +59,7 @@ export function ListUserByNameDB(idUser: string, name: string) {
 }
 export function GetUserByIdDB(idUser: string) {
     return new Promise((res, rej) => {
-        var con = mysql.createConnection(confi)
+        var con = mysql2.createConnection(confi)
         con.connect((e) => {
             if (e) {
                 rej(e)

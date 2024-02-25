@@ -1,10 +1,10 @@
-import mysql from "mysql";
+import mysql2 from "mysql2";
 import { confi } from "../../confi.js";
 
 
 export function InsertAddFriendRequestDB(idUser: string, idAddFriends: string) {
   return new Promise((res, error) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((err) => {
       if (err) {
         error(err);
@@ -23,7 +23,7 @@ export function InsertAddFriendRequestDB(idUser: string, idAddFriends: string) {
 }
 export function InAddFriendRequestDB(idUser: string, idAddFriends: string) {
   return new Promise((res, error) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((err) => {
       if (err) {
         error(err);
@@ -42,7 +42,7 @@ export function InAddFriendRequestDB(idUser: string, idAddFriends: string) {
 
 export async function ListAddFriendRequestDB(idUser: string) {
   return new Promise((res, error) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((err) => {
       if (err) {
         error(err);
@@ -61,7 +61,7 @@ export async function ListAddFriendRequestDB(idUser: string) {
 
 export async function CancelingFriendRequestDB(idFriendRequest: string, idUser: string) {
   return new Promise((res, error) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((err) => {
       if (err) {
         error(err);
@@ -79,9 +79,10 @@ export async function CancelingFriendRequestDB(idFriendRequest: string, idUser: 
 }
 
 
+
 export async function ListSentFriendRequestDB(idUser: string) {
   return new Promise((res, error) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((err) => {
       if (err) {
         error(err);
@@ -99,7 +100,7 @@ export async function ListSentFriendRequestDB(idUser: string) {
 }
 export async function GetCountFriendRequestByStatusDB(idAddFriend: string, status: string) {
   return new Promise((res, error) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((err) => {
       if (err) {
         error(err);
@@ -119,7 +120,7 @@ export async function GetCountFriendRequestByStatusDB(idAddFriend: string, statu
 }
 export async function UpdateFriendRequestBySeenDB(idAddFriend: string) {
   return new Promise((res, error) => {
-    var con = mysql.createConnection(confi);
+    var con = mysql2.createConnection(confi);
     con.connect((err) => {
       if (err) {
         error(err);

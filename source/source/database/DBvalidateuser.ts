@@ -1,10 +1,10 @@
-import mysql from "mysql"
+import mysql2 from "mysql2"
 import { confi } from "../../confi.js";
 import validateuser from "../model/Validateuser.js";
 
 export function InsertValidateuserBD(p: validateuser) {
     return new Promise((res, err) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((e) => {
             if (e) {
                 err(e.message)
@@ -22,7 +22,7 @@ export function InsertValidateuserBD(p: validateuser) {
 }
 export function UpdateStatusInValidateuserBD(id: string, status: number) {
     return new Promise((res, err) => {
-        let con = mysql.createConnection(confi);
+        let con = mysql2.createConnection(confi);
         con.connect((e) => {
             if (e) {
                 err(e)
@@ -40,7 +40,7 @@ export function UpdateStatusInValidateuserBD(id: string, status: number) {
 }
 export function GetValidateUserBD(id: string, cookie: string) {
     return new Promise((res, rea) => {
-        let con = mysql.createConnection(confi);
+        let con = mysql2.createConnection(confi);
         con.connect((err) => {
             if (err) {
                 rea(err)
@@ -58,7 +58,7 @@ export function GetValidateUserBD(id: string, cookie: string) {
 }
 export function DeleteValidateDB(id: string, cookie: string) {
     return new Promise((res, rea) => {
-        let con = mysql.createConnection(confi);
+        let con = mysql2.createConnection(confi);
         con.connect((err) => {
             if (err) {
                 rea(err)
@@ -76,7 +76,7 @@ export function DeleteValidateDB(id: string, cookie: string) {
 }
 export function DeleteValidateAllDB(id: string) {
     return new Promise((res, rea) => {
-        let con = mysql.createConnection(confi);
+        let con = mysql2.createConnection(confi);
         con.connect((err) => {
             if (err) {
                 rea(err)

@@ -1,8 +1,8 @@
-import mysql from "mysql"
+import mysql2 from "mysql2"
 import { confi } from "../../confi.js"
 export function GetHaveListFriendsByIdUserDB(id: string) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)
@@ -21,7 +21,7 @@ export function GetHaveListFriendsByIdUserDB(id: string) {
 
 export function SearchFirendsByIdDB(id: string) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)
@@ -40,7 +40,7 @@ export function SearchFirendsByIdDB(id: string) {
 
 export function SearchFirendsByNameDB(iduser: string, name: string) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)
@@ -59,7 +59,7 @@ export function SearchFirendsByNameDB(iduser: string, name: string) {
 
 export function IsFriendInListDB(idUser: string, idFriend: string) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)
@@ -77,7 +77,7 @@ export function IsFriendInListDB(idUser: string, idFriend: string) {
 }
 export function insertListFriendsDB(idUser: string, idFriend: string) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)
@@ -96,7 +96,7 @@ export function insertListFriendsDB(idUser: string, idFriend: string) {
 
 export function CancelFriendsDB(idUser: string, idFriend: string) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)

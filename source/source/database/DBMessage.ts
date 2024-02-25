@@ -1,9 +1,9 @@
 import { confi, limit } from "../../confi.js";
-import mysql from "mysql"
+import mysql2 from "mysql2"
 
 export function GetAllContentByidBoxDB(idBox: string, idUser: string, now: string) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)
@@ -27,7 +27,7 @@ export function GetAllContentByidBoxDB(idBox: string, idUser: string, now: strin
 export function InsertContentInDB(idBox: string, idUser: string, mess: string, type?: string) {
     type = type || "0"
     return new Promise((res, rej) => {
-        var con = mysql.createConnection(confi)
+        var con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 rej(err)
@@ -45,7 +45,7 @@ export function InsertContentInDB(idBox: string, idUser: string, mess: string, t
 }
 export function GetMessByIdDB(idMess: string) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)
@@ -66,7 +66,7 @@ export function GetMessByIdDB(idMess: string) {
 }
 export function DelMessByIdDB(idMess: string, idUser: string) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)
@@ -86,7 +86,7 @@ export function DelMessByIdDB(idMess: string, idUser: string) {
 
 export function GetImageMessByidBoxDB(idBox: string, idUser: string, limit: limit) {
     return new Promise((res, error) => {
-        let con = mysql.createConnection(confi)
+        let con = mysql2.createConnection(confi)
         con.connect((err) => {
             if (err) {
                 error(err)
