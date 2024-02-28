@@ -46,10 +46,10 @@ interface mess {
 function TypeMessImage(data: mess) {
   var texts = data.content;
   texts = texts.trim();
-
+  
   var r = texts.split(" ");
   var a = r.map((text) => {
-    var s = `http://localhost:666/public/upload/${text}`;
+    var s = `https://firebasestorage.googleapis.com/v0/b/supple-league-394102.appspot.com/o/${text}`;
     return (
       <span className="w-fit " key={Math.random()}>
         {" "}

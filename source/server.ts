@@ -100,7 +100,7 @@ app.get("/", async (req, res) => {
     );
 
     if (!s) {
-      renderHtml(res, join(__dirname, "/font/sign.ejs"), {})
+      renderHtml(res, join(__dirname, "/font/sign.ejs"), {},"html")
       return;
     }
     var date = new Date();

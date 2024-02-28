@@ -157,7 +157,7 @@ route.get("/logOut", async (req: Request, res: Response) => {
     .catch((v) => { });
   res.clearCookie("id");
   res.clearCookie("sercurity");
-  res.redirect("/account/sign");
+  res.redirect("/");
 });
 route.get("/logOutAll", async (req: Request, res: Response) => {
   var sercurity: sercurity = req.cookies;
@@ -172,7 +172,7 @@ route.get("/logOutAll", async (req: Request, res: Response) => {
   res.clearCookie("id");
   res.clearCookie("sercurity");
   res.clearCookie("ab");
-  res.redirect("/account/sign");
+  res.redirect("/");
 });
 route.get("/ValidateAcc/:acc/:vali", async (req: Request, res: Response) => {
   console.log(req.params);

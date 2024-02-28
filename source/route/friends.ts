@@ -66,6 +66,7 @@ routeFriends.post("/searchuser", async (req: Request, res: Response) => {
   var listUser: User[] = []
   listUser = await ctUser.SearchListUserByName(s.id, nameUser);
 
+
   renderHtml(res, join(__dirname, '/font/user/userlist.ejs'), {
     listUser: listUser
   })
@@ -102,7 +103,7 @@ routeFriends.post("/addFriendsRequset", async (req: Request, res: Response) => {
   if (check) {
     io.to(idFriend).emit("ReqAddFriends", "yêu cầu kết bạn");
   }
-  res.json({ err: true, mess: "bạn đã giử thành công" })
+  res.json({ err: false, mess: "bạn đã giử thành công" })
 });
 routeFriends.post("/listAddFriendRequest", async (req: Request, res: Response) => {
   var s: sercurity = req.cookies;

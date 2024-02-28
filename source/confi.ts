@@ -171,13 +171,15 @@ export function validate(req: Request) {
   }
   return false;
 }
-export function renderHtml(res: Response, path: string, data: any) {
-
-
-
-
-  res.json(data)
-  //res.render(path, data)
+export function renderHtml(res: Response, path: string, data: any, type?: "html" | "json") {
+  switch (type) {
+    case "html":
+      res.render(path, data)
+      break;
+    default:
+      res.json(data)
+      break;
+  }
 }
 
 export interface limit {
