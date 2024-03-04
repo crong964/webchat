@@ -22,13 +22,15 @@ export default class User {
     this.sex = "";
   }
   setAll(d: any) {
+
     for (const key in this) {
       if (d[key] != undefined) {
         this[key] = d[key];
       }
     }
-    if (d.year != undefined) {
-      this.birthday = `${d.year}-${d.month}-${d.day}`
+    if (d.birthday != undefined) {
+
+      this.birthday = formatDate(d["birthday"]);
     }
   }
   json() {

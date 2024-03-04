@@ -9,6 +9,7 @@ import route from "./route/account.js";
 import routeFriends from "./route/friends.js";
 import routeBox from "./route/box.js";
 import routeMess from "./route/message.js";
+import routeUser from "./route/user.js"
 
 import bodyParser from "body-parser";
 import { sercurity } from "./confi.js";
@@ -82,15 +83,15 @@ async function Vali(req: Request, res: Response, next: NextFunction) {
 
   next();
 }
+
 app.use("/account", route);
 app.use("/friends", Vali, routeFriends);
-
 app.use("/box", Vali, routeBox);
 app.use("/groupbox", Vali, routeGroupBox)
-
 app.use("/mess", Vali, routeMess);
 app.use("/map", Vali, routeMap)
 app.use("/upload", upload)
+app.use("/user", routeUser)
 app.get("/", async (req, res) => {
   var sercurity: sercurity = req.cookies;
   if (!validate(req)) {
@@ -100,7 +101,7 @@ app.get("/", async (req, res) => {
     );
 
     if (!s) {
-      renderHtml(res, join(__dirname, "/font/sign.ejs"), {},"html")
+      renderHtml(res, join(__dirname, "/font/sign.ejs"), {}, "html")
       return;
     }
     var date = new Date();
@@ -186,7 +187,7 @@ app.post("/author", Vali, async (req, res) => {
 server.listen(port, () => {
   ip = `http://localhost:${port}`
   console.log(`http://localhost:${port}`);
-  console.log(`http://localhost:${port}/ui`);
+  //console.log(`http://localhost:${port}/ui`);
 });
 
 io.on("connection", async (socket) => {

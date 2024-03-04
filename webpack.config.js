@@ -18,6 +18,6 @@ module.exports = {
     },
     output: {
         filename: 'bundle.js',
-        path: path.join(__dirname, 'dist/client'),
+        path: path.join(process.cwd(), 'dist/client'),
     },
 };

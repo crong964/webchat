@@ -99,5 +99,18 @@ class ControllerUser {
             return this.user;
         });
     }
+    UpdateUser(p) {
+        return __awaiter(this, void 0, void 0, function* () {
+            var check = false;
+            try {
+                yield (0, DBUser_js_1.UpdateUserDB)(p);
+                check = true;
+            }
+            catch (error) {
+                console.log(error);
+            }
+            return check;
+        });
+    }
 }
 exports.default = ControllerUser;

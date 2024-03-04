@@ -26,7 +26,6 @@ export function InsertNewUserDB(p: User) {
                 rej(e)
             }
             var sql = " INSERT INTO `user`( `account`, `nameUser`, `birthday`, `sex`,`avatar`) VALUES (?,?,?,?,?)"
-
             con.query(sql, [p.account, p.nameUser, p.birthday, p.sex, p.avatar], (e, rt, fi) => {
                 if (e) {
                     rej(e)
@@ -71,6 +70,24 @@ export function GetUserByIdDB(idUser: string) {
                     rej(e)
                 }
                 res(rt);
+                con.end()
+            })
+        })
+    })
+}
+export function UpdateUserDB(p: User) {
+    return new Promise((res, rej) => {
+        var con = mysql2.createConnection(confi)
+        con.connect((e) => {
+            if (e) {
+                rej(e)
+            }
+            var sql = ` UPDATE user SET nameUser= ?, sex= ?, birthday=?   WHERE id= ? `
+            var s = con.query(sql, [p.nameUser, p.sex, p.birthday, p.id], (e, rt, fi) => {
+                if (e) {
+                    rej(e)
+                }
+                res(true);
                 con.end()
             })
         })

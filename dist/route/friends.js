@@ -119,7 +119,7 @@ routeFriends.post("/addFriendsRequset", (req, res) => __awaiter(void 0, void 0, 
     if (check) {
         server_js_1.default.to(idFriend).emit("ReqAddFriends", "yêu cầu kết bạn");
     }
-    res.json({ err: true, mess: "bạn đã giử thành công" });
+    res.json({ err: false, mess: "bạn đã giử thành công" });
 }));
 routeFriends.post("/listAddFriendRequest", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var s = req.cookies;

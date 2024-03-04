@@ -44,6 +44,7 @@ const account_js_1 = __importDefault(require("./route/account.js"));
 const friends_js_1 = __importDefault(require("./route/friends.js"));
 const box_js_1 = __importDefault(require("./route/box.js"));
 const message_js_1 = __importDefault(require("./route/message.js"));
+const user_js_1 = __importDefault(require("./route/user.js"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const socket_io_1 = require("socket.io");
 const cookie_1 = require("cookie");
@@ -110,6 +111,7 @@ app.use("/groupbox", Vali, groupbox_js_1.default);
 app.use("/mess", Vali, message_js_1.default);
 app.use("/map", Vali, map_js_1.default);
 app.use("/upload", upload_js_1.default);
+app.use("/user", user_js_1.default);
 app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var sercurity = req.cookies;
     if (!(0, confi_js_1.validate)(req)) {
@@ -192,7 +194,7 @@ app.post("/author", Vali, (req, res) => __awaiter(void 0, void 0, void 0, functi
 server.listen(port, () => {
     exports.ip = `http://localhost:${port}`;
     console.log(`http://localhost:${port}`);
-    console.log(`http://localhost:${port}/ui`);
+    //console.log(`http://localhost:${port}/ui`);
 });
 io.on("connection", (socket) => __awaiter(void 0, void 0, void 0, function* () {
     var cookie = (0, cookie_1.parse)(socket.handshake.headers.cookie ? socket.handshake.headers.cookie : "");

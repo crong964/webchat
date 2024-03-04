@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import useNaviState from "./useNaviState";
+import InforUser from "../User/InforUser";
 import SubNavi from "./SubNavi";
+
 interface User {
   ntb: number;
 }
@@ -21,20 +23,41 @@ function requestfriendlist() {}
 function boxlist() {}
 function friendlist() {}
 function mapF() {}
+function useInfor() {
+  const [show, SetShow] = useState(false);
+
+  return { show, SetShow };
+}
 export default function Navi(data: navi) {
   var { a, set } = useNaviState();
+  var { show, SetShow } = useInfor();
   return (
     <div className="nav w-full lg:w-20 bg-blue-400 flex justify-between lg:justify-start flex-col font-mono">
       <div className=" mt-5 flex justify-around items-center">
         <div className="visible lg:hidden text-white font-bold text-[55px]">
           Chatbox
         </div>
-        <div className=" overflow-hidden w-[55px] lg:w-9/12 h-14 rounded-full ">
+        <div
+          className=" overflow-hidden w-[55px] lg:w-9/12 h-14 rounded-full "
+          onClick={() => {
+            if (!show) {
+              SetShow(!show);
+            }
+          }}
+        >
           <img
             className=" w-full "
             title={data.name}
             src={data.avatar}
             alt=""
+          />
+          <InforUser
+            show={show}
+            birthday=""
+            avatar=""
+            nameUser=""
+            sex={0}
+            SetShow={SetShow}
           />
         </div>
       </div>

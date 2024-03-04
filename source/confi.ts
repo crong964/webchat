@@ -115,7 +115,7 @@ export interface content {
 }
 export function formatDate(d: string) {
   var date = new Date(d);
-  return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+  return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
 }
 export function formatNowDateYMDHMS(d: string) {
   var date = new Date(d);

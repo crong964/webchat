@@ -178,6 +178,7 @@ export default function App() {
             )}
           </MainLeft>
         </Responsive>
+        
       </div>
     </>
   );

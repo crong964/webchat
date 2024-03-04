@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetUserByIdDB = exports.ListUserByNameDB = exports.InsertNewUserDB = exports.GetkUserDatabase = void 0;
+exports.UpdateUserDB = exports.GetUserByIdDB = exports.ListUserByNameDB = exports.InsertNewUserDB = exports.GetkUserDatabase = void 0;
 const mysql2_1 = __importDefault(require("mysql2"));
 const confi_js_1 = require("../../confi.js");
 function GetkUserDatabase(account) {
@@ -81,3 +81,22 @@ function GetUserByIdDB(idUser) {
     });
 }
 exports.GetUserByIdDB = GetUserByIdDB;
+function UpdateUserDB(p) {
+    return new Promise((res, rej) => {
+        var con = mysql2_1.default.createConnection(confi_js_1.confi);
+        con.connect((e) => {
+            if (e) {
+                rej(e);
+            }
+            var sql = ` UPDATE user SET nameUser= ?, sex= ?, birthday=?   WHERE id= ? `;
+            var s = con.query(sql, [p.nameUser, p.sex, p.birthday, p.id], (e, rt, fi) => {
+                if (e) {
+                    rej(e);
+                }
+                res(true);
+                con.end();
+            });
+        });
+    });
+}
+exports.UpdateUserDB = UpdateUserDB;

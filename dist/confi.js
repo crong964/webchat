@@ -80,7 +80,7 @@ function UnknownObject(p) {
 exports.UnknownObject = UnknownObject;
 function formatDate(d) {
     var date = new Date(d);
-    return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
 }
 exports.formatDate = formatDate;
 function formatNowDateYMDHMS(d) {

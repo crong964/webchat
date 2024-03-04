@@ -22,8 +22,8 @@ class User {
                 this[key] = d[key];
             }
         }
-        if (d.year != undefined) {
-            this.birthday = `${d.year}-${d.month}-${d.day}`;
+        if (d.birthday != undefined) {
+            this.birthday = (0, confi_js_1.formatDate)(d["birthday"]);
         }
     }
     json() {
